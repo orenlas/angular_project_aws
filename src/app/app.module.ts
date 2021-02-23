@@ -24,6 +24,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatTableExporterModule } from 'mat-table-exporter';
 
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
@@ -70,6 +71,7 @@ import { CovidComponent } from './covid/covid.component';
     MatPaginatorModule,
     MatSortModule,
     MatFormFieldModule,
+    MatTableExporterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

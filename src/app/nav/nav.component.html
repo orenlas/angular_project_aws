@@ -6,10 +6,8 @@
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <div *ngIf = "(auth.getUser() | async)"><a mat-list-item href="/covid" routerLinkActive="active">Covid19 Data</a></div>
-      <!--
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
-      -->
+      <div *ngIf = "(auth.getUser() | async)"><a mat-list-item href="/advice" routerLinkActive="active">Funny Daily Advice</a></div>
+      <div *ngIf = "(auth.getUser() | async)"><a mat-list-item href="/#" routerLinkActive="active">AWS</a></div>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

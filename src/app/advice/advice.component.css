@@ -1,0 +1,9 @@
+.example-card {
+    margin: 0 auto;
+    width: 40%;
+  }
+.refresh {
+    margin-left: 500px;
+    background-color: tomato;
+    color:black;
+}

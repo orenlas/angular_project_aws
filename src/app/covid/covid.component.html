@@ -1,3 +1,4 @@
+<p></p>
 <div class="filter">
     <mat-form-field>
         <mat-label>Filter</mat-label>
@@ -5,7 +6,7 @@
     </mat-form-field>
 </div>
 
-<div>
+<div class = "export">
     Export Data to : 
     &nbsp;&nbsp;<button mat-raised-button color = 'primary' (click)="exporter.exportTable('xlsx', {fileName:'Covid19Today'})">Excel</button>
     &nbsp;&nbsp;<button mat-raised-button color = 'primary' (click)="exporter.exportTable('csv', {fileName:'Covid19Today'})">CSV</button>

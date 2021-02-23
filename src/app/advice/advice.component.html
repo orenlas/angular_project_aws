@@ -1,0 +1,16 @@
+<p></p>
+<mat-card class="example-card" *ngIf = "(advicesData$ | async)">
+  <mat-card-header>
+  </mat-card-header>
+  <img mat-card-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT8pVd-X7TnCRmdDQdeCN8K_JZDgiJTiO70Q&usqp=CAU" alt="zoltar" width="30px" height="200px">
+  <mat-card-content>
+    <p>
+      {{advices.slip.advice}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+  </mat-card-actions>
+</mat-card>
+<p></p>
+<button mat-raised-button class = "refresh" [routerLink]="['/advice']" (click)="refreshAdvice()">I Want A new advice</button>
+<p></p>

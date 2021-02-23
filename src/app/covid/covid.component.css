@@ -4,10 +4,16 @@ table {
 th.mat-sort-header-sorted {
     color: black;
   }
+
 img.one{
     width: 30px;
     height: 20px;
 }
+
 .filter{
+    margin-left: 10px;
+}
+
+.export{
     margin-left: 10px;
 }

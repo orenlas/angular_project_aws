@@ -1,0 +1,4 @@
+<mat-card>
+    <div *ngIf = "(auth.getUser() | async)"><h1>Welcome! {{email}}</h1></div> 
+    <div *ngIf = "!(auth.getUser() | async)"><h1>Welcome, Please Login or Sign-up</h1></div>   
+</mat-card>

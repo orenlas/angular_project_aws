@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "finalproject-you"
+  },
+  "targets": {
+    "finalproject-you": {
+      "hosting": {
+        "project": [
+          "finalproject-you"
+        ]
+      }
+    }
   }
 }

@@ -5,9 +5,11 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
+      <div *ngIf = "(auth.getUser() | async)"><a mat-list-item href="/covid" routerLinkActive="active">Covid19 Data</a></div>
+      <!--
       <a mat-list-item href="#">Link 2</a>
       <a mat-list-item href="#">Link 3</a>
+      -->
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

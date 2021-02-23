@@ -34,6 +34,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { CovidComponent } from './covid/covid.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     NavComponent,
     LoginComponent,
     SignUpComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    CovidComponent
   ],
   imports: [
     BrowserModule,

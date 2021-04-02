@@ -1,4 +1,4 @@
-<mat-card>
+<!--<mat-card>
   <h1>Add Patient</h1>
   <form #patientForm="ngForm">
     <div class="example-container">
@@ -13,7 +13,7 @@
         <label>Age</label>
         <br>
         <mat-form-field>
-          <input matInput placeholder="Age" [(ngModel)]="age" name="age" type="number" required>
+          <input matInput [(ngModel)]="age" name="age" type="number" required>
         </mat-form-field>
       </p>
       <p>
@@ -49,14 +49,14 @@
         <label>Resting blood pressure</label>
         <br>
         <mat-form-field>
-          <input matInput placeholder="trestbps" [(ngModel)]="trestbps" name="trestbps" type="number" required>
+          <input matInput [(ngModel)]="trestbps" name="trestbps" type="number" required>
         </mat-form-field>
       </p>
       <p>
         <label>Serum cholestoral in mg/dl</label>
         <br>
         <mat-form-field>
-          <input matInput placeholder="chol" [(ngModel)]="chol" name="chol" type="number" required>
+          <input matInput [(ngModel)]="chol" name="chol" type="number" required>
         </mat-form-field>
       </p>
       <p>
@@ -84,7 +84,7 @@
         <label>Maximum heart rate achieved</label>
         <br>
         <mat-form-field>
-          <input matInput placeholder="thalach" [(ngModel)]="thalach" name="thalach" type="number" required>
+          <input matInput [(ngModel)]="thalach" name="thalach" type="number" required>
         </mat-form-field>
       </p>
       <p>
@@ -101,7 +101,7 @@
         <label>ST depression induced by exercise relative to rest</label>
         <br>
         <mat-form-field>
-          <input matInput placeholder="oldpeak" [(ngModel)]="oldpeak" name="oldpeak" type="number" required>
+          <input matInput [(ngModel)]="oldpeak" name="oldpeak" type="number" required>
         </mat-form-field>
       </p>
       <p>
@@ -155,4 +155,153 @@
       </div>
     </div>
   </form>
-</mat-card>
+</mat-card> -->
+<br>
+<h1 class="mat-title">Add Patient</h1>
+<mat-horizontal-stepper linear #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>General Details</ng-template>
+      <label>Name</label>
+        <mat-form-field appearance="standard">
+          <input matInput formControlName="name" [(ngModel)]="name" placeholder="Full Name" name="name" type="string" required>
+        </mat-form-field>
+        <br>
+        <mat-label>Age  </mat-label>
+        <mat-form-field>
+          <input matInput formControlName="age" [(ngModel)]="age" placeholder="Age" name="age" type="number" required>
+        </mat-form-field>
+        <br>
+        <label>Sex  </label>
+        <mat-form-field appearance="fill">
+          <mat-select matNativeControl formControlName="sex" [(ngModel)]="sex" name="sex" required>
+            <mat-option [value]="1">Male</mat-option>
+            <mat-option [value]="0">Female</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-label>Examination date  </mat-label>
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="date"
+          type="datetime-local"
+          [(ngModel)]="date" name="date" required>
+        </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Medical Details</ng-template>
+      <label>Chest pain type  </label>
+      <mat-form-field appearance="fill">
+        <mat-select matNativeControl formControlName="cp" [(ngModel)]="cp" name="cp" required>
+          <mat-option [value]="0">typical angina</mat-option>
+          <mat-option [value]="1">atypical angina</mat-option>
+          <mat-option [value]="2">non-anginal pain</mat-option>
+          <mat-option [value]="3">asymptomatic</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+        <label>Resting blood pressure  </label>
+        <mat-form-field>
+          <input matInput formControlName="trestbps" [(ngModel)]="trestbps" name="trestbps" type="number" required>
+        </mat-form-field>
+        <br>
+        <label>Serum cholestoral in mg/dl  </label>
+        <mat-form-field>
+          <input matInput formControlName="chol" [(ngModel)]="chol" name="chol" type="number" required>
+        </mat-form-field>
+        <br>
+        <label>Is your fasting blood sugar is more than 120 mg/dl ?  </label>
+        <mat-form-field appearance="fill">
+          <mat-select matNativeControl formControlName="fbs" [(ngModel)]="fbs" name="fbs" required>
+            <mat-option [value]="1">Yes</mat-option>
+            <mat-option [value]="0">No</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <label>Resting electrocardiographic results  </label>
+        <mat-form-field appearance="fill">
+          <mat-select matNativeControl formControlName="restecg" [(ngModel)]="restecg" name="restecg" required>
+            <mat-option [value]="0">Normal</mat-option>
+            <mat-option [value]="1">Having ST-T wave abnormality</mat-option>
+            <mat-option [value]="2">Showing probable or definite left ventricular hypertrophy by Estes' criteria</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <label>Maximum heart rate achieved  </label>
+        <mat-form-field>
+          <input matInput formControlName="thalach" [(ngModel)]="thalach" name="thalach" type="number" required>
+        </mat-form-field>
+        <br>
+        <label>Exercise induced angina  </label>
+        <mat-form-field appearance="fill">
+          <mat-select matNativeControl formControlName="exang" [(ngModel)]="exang" name="exang" required>
+            <mat-option [value]="1">Yes</mat-option>
+            <mat-option [value]="0">No</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <label>ST depression induced by exercise relative to rest  </label>
+        <mat-form-field>
+          <input matInput formControlName="oldpeak" [(ngModel)]="oldpeak" name="oldpeak" type="number" required>
+        </mat-form-field>
+        <br>
+        <label>The slope of the peak exercise ST segment  </label>
+        <mat-form-field appearance="fill">
+          <mat-select matNativeControl formControlName="slope" [(ngModel)]="slope" name="slope" required>
+            <mat-option [value]="0">upsloping</mat-option>
+            <mat-option [value]="1">flat</mat-option>
+            <mat-option [value]="2">downsloping</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <label>What is the Number of major vessels (0-3) colored by flourosopy  </label>
+        <mat-form-field appearance="fill">
+          <mat-select matNativeControl formControlName="ca" [(ngModel)]="ca" name="ca" required>
+            <mat-option [value]="0">0</mat-option>
+            <mat-option [value]="1">1</mat-option>
+            <mat-option [value]="2">2</mat-option>
+            <mat-option [value]="3">3</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <label>Thalassemia  </label>
+        <mat-form-field appearance="fill">
+          <mat-select matNativeControl formControlName="thal" [(ngModel)]="thal" name="thal" required>
+            <mat-option [value]="1">normal</mat-option>
+            <mat-option [value]="2">fixed defect</mat-option>
+            <mat-option [value]="3">reversable defect</mat-option>
+          </mat-select>
+        </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious color="secondary">Back</button>
+        <button mat-button matStepperNext color="primary">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button *ngIf='!result' mat-raised-button color="primary" (click)="predict()">Predict</button>
+    </div>
+    <div>
+      <button *ngIf='!!result' mat-raised-button color="primary" (click)="addPatient()">
+        Save
+      </button>
+      <button *ngIf='!!result' mat-raised-button (click) = "result = ''">
+        Cancel
+      </button>
+    </div>
+    <br>
+    <p *ngIf='result'>This patient status is : {{result}}</p>
+    <div>
+    <button mat-raised-button color='warn' (click)="stepper.reset()">
+      Reset Patient Details
+    </button>
+  </div>
+  </mat-step>
+</mat-horizontal-stepper>

@@ -1,12 +1,15 @@
 table {
     width: 100%;
   }
-  .green {
+.green {
   color:green;
   }
-  .red {
+.red {
   color:red;
   }  
-  .orange {
+.orange {
     color:orange;
-    }  
+  }  
+.addButton {
+  margin-left: 10px;
+}

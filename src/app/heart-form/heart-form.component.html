@@ -1,0 +1,158 @@
+<mat-card>
+  <h1>Add Patient</h1>
+  <form #patientForm="ngForm">
+    <div class="example-container">
+      <p>
+        <label>Name</label>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Full Name" [(ngModel)]="name" name="name" type="string" required>
+        </mat-form-field>
+      </p>
+      <p>
+        <label>Age</label>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="Age" [(ngModel)]="age" name="age" type="number" required>
+        </mat-form-field>
+      </p>
+      <p>
+        <label>Sex</label>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-select matNativeControl [(ngModel)]="sex" name="sex" required>
+            <mat-option [value]="1">Male</mat-option>
+            <mat-option [value]="0">Female</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+      <p>
+      <mat-form-field appearance="fill">
+          <input matInput
+          type="datetime-local"
+          [(ngModel)]="date" name="date" required>
+        </mat-form-field>
+      </p>
+      <p>
+      <label>Chest pain type</label>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-select matNativeControl [(ngModel)]="cp" name="cp" required>
+          <mat-option [value]="0">typical angina</mat-option>
+          <mat-option [value]="1">atypical angina</mat-option>
+          <mat-option [value]="2">non-anginal pain</mat-option>
+          <mat-option [value]="3">asymptomatic</mat-option>
+        </mat-select>
+      </mat-form-field>
+      </p>
+      <p>
+        <label>Resting blood pressure</label>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="trestbps" [(ngModel)]="trestbps" name="trestbps" type="number" required>
+        </mat-form-field>
+      </p>
+      <p>
+        <label>Serum cholestoral in mg/dl</label>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="chol" [(ngModel)]="chol" name="chol" type="number" required>
+        </mat-form-field>
+      </p>
+      <p>
+        <label>Is your fasting blood sugar is more than 120 mg/dl ?</label>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-select matNativeControl [(ngModel)]="fbs" name="fbs" required>
+            <mat-option [value]="1">Yes</mat-option>
+            <mat-option [value]="0">No</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+      <p>
+        <label>Resting electrocardiographic results</label>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-select matNativeControl [(ngModel)]="restecg" name="restecg" required>
+            <mat-option [value]="0">Normal</mat-option>
+            <mat-option [value]="1">Having ST-T wave abnormality</mat-option>
+            <mat-option [value]="2">Showing probable or definite left ventricular hypertrophy by Estes' criteria</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+      <p>
+        <label>Maximum heart rate achieved</label>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="thalach" [(ngModel)]="thalach" name="thalach" type="number" required>
+        </mat-form-field>
+      </p>
+      <p>
+        <label>Exercise induced angina</label>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-select matNativeControl [(ngModel)]="exang" name="exang" required>
+            <mat-option [value]="1">Yes</mat-option>
+            <mat-option [value]="0">No</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+      <p>
+        <label>ST depression induced by exercise relative to rest</label>
+        <br>
+        <mat-form-field>
+          <input matInput placeholder="oldpeak" [(ngModel)]="oldpeak" name="oldpeak" type="number" required>
+        </mat-form-field>
+      </p>
+      <p>
+        <label>The slope of the peak exercise ST segment</label>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-select matNativeControl [(ngModel)]="slope" name="slope" required>
+            <mat-option [value]="0">upsloping</mat-option>
+            <mat-option [value]="1">flat</mat-option>
+            <mat-option [value]="2">downsloping</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+      <p>
+        <label>What is the Number of major vessels (0-3) colored by flourosopy</label>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-select matNativeControl [(ngModel)]="ca" name="ca" required>
+            <mat-option [value]="0">0</mat-option>
+            <mat-option [value]="1">1</mat-option>
+            <mat-option [value]="2">2</mat-option>
+            <mat-option [value]="3">3</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+      <p>
+        <label>Thalassemia
+        </label>
+        <br>
+        <mat-form-field appearance="fill">
+          <mat-select matNativeControl [(ngModel)]="thal" name="thal" required>
+            <mat-option [value]="1">normal</mat-option>
+            <mat-option [value]="2">fixed defect</mat-option>
+            <mat-option [value]="3">reversable defect</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+      <div>{{result}}</div>
+      <div>
+        <button *ngIf='!result' mat-raised-button color="primary" (click)="predict()">Predict</button>
+      </div>
+      <div>
+        <button *ngIf='result' mat-raised-button color="primary" (click)="addPatient()">
+          Save
+        </button>
+      </div>
+      <div>
+        <button *ngIf='result' mat-raised-button>
+          Cancel
+        </button>
+      </div>
+    </div>
+  </form>
+</mat-card>

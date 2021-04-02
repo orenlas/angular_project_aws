@@ -1,0 +1,141 @@
+<p></p>
+<div *ngIf="(authService.getUser()| async)">
+  <button mat-raised-button color="primary" (click)="redirect()">
+    Add Patient
+  </button>
+</div>
+
+<br>
+
+<table mat-table [dataSource]="patients" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element;  let i = index">
+      <span>{{element.name}}</span>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="age">
+    <th mat-header-cell *matHeaderCellDef> Age </th>
+    <td mat-cell *matCellDef="let element;  let i = index">
+      <span>{{element.age}}</span>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="sex">
+    <th mat-header-cell *matHeaderCellDef> Sex </th>
+    <td mat-cell *matCellDef="let element;  let i = index">
+      <span>{{sexDict[element.sex]}}</span>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef> Date of Check </th>
+    <td mat-cell *matCellDef="let element;  let i = index">
+      <span>{{element.date |  date:'dd/MM/yyyy HH:mm'}}</span>
+    </td>
+  </ng-container>
+
+  <!-- <ng-container matColumnDef="cp">
+      <th mat-header-cell *matHeaderCellDef> CP </th>
+      <td mat-cell *matCellDef="let element;  let i = index">
+        <span>{{element.cp}}</span> 
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="trestbps">
+        <th mat-header-cell *matHeaderCellDef> trestbps </th>
+        <td mat-cell *matCellDef="let element;  let i = index">
+          <span>{{element.trestbps}}</span> 
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="chol">
+        <th mat-header-cell *matHeaderCellDef> chol </th>
+        <td mat-cell *matCellDef="let element;  let i = index">
+          <span>{{element.chol}}</span> 
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="fbs">
+        <th mat-header-cell *matHeaderCellDef> fbs </th>
+        <td mat-cell *matCellDef="let element;  let i = index">
+          <span>{{element.fbs}}</span> 
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="restecg">
+        <th mat-header-cell *matHeaderCellDef> restecg </th>
+        <td mat-cell *matCellDef="let element;  let i = index">
+          <span>{{element.restecg}}</span> 
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="thalach">
+        <th mat-header-cell *matHeaderCellDef> thalach </th>
+        <td mat-cell *matCellDef="let element;  let i = index">
+          <span>{{element.thalach}}</span> 
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="exang">
+        <th mat-header-cell *matHeaderCellDef> exang </th>
+        <td mat-cell *matCellDef="let element;  let i = index">
+          <span>{{element.exang}}</span> 
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="oldpeak">
+        <th mat-header-cell *matHeaderCellDef> oldpeak </th>
+        <td mat-cell *matCellDef="let element;  let i = index">
+          <span>{{element.oldpeak}}</span> 
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="slope">
+        <th mat-header-cell *matHeaderCellDef> slope </th>
+        <td mat-cell *matCellDef="let element;  let i = index">
+          <span>{{element.slope}}</span> 
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="ca">
+        <th mat-header-cell *matHeaderCellDef> ca </th>
+        <td mat-cell *matCellDef="let element;  let i = index">
+          <span>{{element.ca}}</span> 
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="thal">
+        <th mat-header-cell *matHeaderCellDef> thal </th>
+        <td mat-cell *matCellDef="let element;  let i = index">
+          <span>{{element.thal}}</span> 
+        </td>
+      </ng-container> -->
+
+  <ng-container matColumnDef="result">
+    <th mat-header-cell *matHeaderCellDef> Result </th>
+    <td mat-cell *matCellDef="let element;  let i = index">
+      <span [ngClass]="{
+                'green':element.result === 'low risk',
+                'orange':element.result === 'medium risk',
+                'red':element.result === 'high risk'
+              }
+            ">{{element.result}}</span>
+    </td>
+  </ng-container>
+
+  <!-- Delete Column -->
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef> Delete </th>
+    <td mat-cell *matCellDef="let element; let i = index">
+      <button mat-raised-button color='warn' (click)="deletePatient(i)">
+        Delete
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

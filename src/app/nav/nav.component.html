@@ -7,7 +7,7 @@
     <mat-nav-list>
       <div *ngIf = "(auth.getUser() | async)"><a mat-list-item href="/covid" routerLinkActive="active">Covid19 Data</a></div>
       <div *ngIf = "(auth.getUser() | async)"><a mat-list-item href="/advice" routerLinkActive="active">Funny Daily Advice</a></div>
-      <div *ngIf = "(auth.getUser() | async)"><a mat-list-item href="/#" routerLinkActive="active">AWS</a></div>
+      <div *ngIf = "(auth.getUser() | async)"><a mat-list-item href="/patients" routerLinkActive="active">Patient List</a></div>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

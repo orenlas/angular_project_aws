@@ -25,6 +25,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatTableExporterModule } from 'mat-table-exporter';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
@@ -37,6 +39,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { CovidComponent } from './covid/covid.component';
 import { AdviceComponent } from './advice/advice.component';
+import { HeartFormComponent } from './heart-form/heart-form.component';
+import { PatientsComponent } from './patients/patients.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,9 @@ import { AdviceComponent } from './advice/advice.component';
     SignUpComponent,
     WelcomeComponent,
     CovidComponent,
-    AdviceComponent
+    AdviceComponent,
+    HeartFormComponent,
+    PatientsComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +80,8 @@ import { AdviceComponent } from './advice/advice.component';
     MatSortModule,
     MatFormFieldModule,
     MatTableExporterModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

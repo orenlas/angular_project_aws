@@ -13,3 +13,23 @@ table {
 .addButton {
   margin-left: 10px;
 }
+
+.delButton {
+	background-color:#ff0000;
+	border-radius:28px;
+	border:2px solid #ab1919;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+  font-weight:bold;
+	padding:0px 12px;
+	text-decoration:none;
+}
+.delButton:hover {
+	background-color:#e01212;
+}
+.delButton:active {
+	position:relative;
+	top:1px;
+}

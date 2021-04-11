@@ -1,5 +1,5 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
+   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
@@ -9,7 +9,7 @@
       <div *ngIf = "(auth.getUser() | async)"><a mat-list-item href="/advice" routerLinkActive="active">Funny Daily Advice</a></div>
       <div *ngIf = "(auth.getUser() | async)"><a mat-list-item href="/patients" routerLinkActive="active">Patient List</a></div>
     </mat-nav-list>
-  </mat-sidenav>
+  </mat-sidenav> 
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <button
@@ -20,7 +20,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Yshai & Uri & Oren App</span>
+   <span>Yshai & Uri & Oren App</span> 
       <span class = "spacer"></span>
       <a class="whitelink" routerLink="/login" *ngIf = "!(auth.getUser() | async)">Login</a>
       <a class="whitelink" routerLink="/signup"  *ngIf = "!(auth.getUser() | async)">SignUp</a>
@@ -29,4 +29,4 @@
     <!-- Add Content Here -->
     <router-outlet></router-outlet>
   </mat-sidenav-content>
-</mat-sidenav-container>
+</mat-sidenav-container> 

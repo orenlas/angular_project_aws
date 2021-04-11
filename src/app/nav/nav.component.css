@@ -16,6 +16,10 @@
   z-index: 1;
 }
 
+.navbar {
+  height: 100px;
+}
+
 .whitelink {
   color: white;
   text-decoration:none;
@@ -31,4 +35,4 @@
   text-decoration:none;
   margin-left: 5px;
   cursor: pointer;
-}
+} 

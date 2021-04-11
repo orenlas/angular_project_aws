@@ -167,12 +167,12 @@
           <input matInput formControlName="name" [(ngModel)]="name" placeholder="Full Name" name="name" type="string" required>
         </mat-form-field>
         <br>
-        <mat-label>Age  </mat-label>
+        <label>Age</label>
         <mat-form-field>
           <input matInput formControlName="age" [(ngModel)]="age" placeholder="Age" name="age" type="number" required>
         </mat-form-field>
         <br>
-        <label>Sex  </label>
+        <label>Sex</label>
         <mat-form-field appearance="fill">
           <mat-select matNativeControl formControlName="sex" [(ngModel)]="sex" name="sex" required>
             <mat-option [value]="1">Male</mat-option>
@@ -180,7 +180,7 @@
           </mat-select>
         </mat-form-field>
         <br>
-        <mat-label>Examination date  </mat-label>
+        <label>Examination date  </label>
         <mat-form-field appearance="fill">
           <input matInput formControlName="date"
           type="datetime-local"
@@ -297,7 +297,7 @@
       </button>
     </div>
     <br>
-    <p *ngIf='result'>This patient status is : {{result}}</p>
+    <p *ngIf='result'>This patient status is : {{result | titlecase}}</p>
     <div>
     <button mat-raised-button color='warn' (click)="stepper.reset()">
       Reset Patient Details

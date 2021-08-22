@@ -1,5 +1,5 @@
 import { Patient } from './interfaces/patient';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
 export class HeartService {
 
   //Model - Prediction
-
+private Api = " https://jywsex8un3.execute-api.us-east-1.amazonaws.com/beta";
   private url = "https://y7nxf4xbgh.execute-api.us-east-1.amazonaws.com/beta";
 
   predict(data
@@ -40,36 +40,48 @@ export class HeartService {
   patientCollection: AngularFirestoreCollection;
 
 
-  public getPatient(userId) {
-    this.patientCollection = this.db.collection(`users/${userId}/patients`);
-    return this.patientCollection.snapshotChanges()
-  }
+  public getPatient() {
+    return this.http.get<any>(this.Api).pipe(
+      map(res => {
+        console.log(res);
+        let final = res[0];
+        return res.Items
+      })
+    
+    )}
 
   
-  deletePatient(userId:string , id:string){
-    this.db.doc(`users/${userId}/patients/${id}`).delete();
+  deletePatient(name){
+   return this.http.delete(`${this.Api}/${name}`).pipe(
+    map(res => {
+      console.log(res);
+    })
+  
+  )
   }
 
-  addPatient(name:string, userId: string, age: number,
+  addPatient(name:string, age: number,
     sex: number,
     date:Date,
-    cp: number,
-    trestbps: number,
-    chol: number,
-    fbs: number,
-    restecg: number,
-    thalach: number,
-    exang: number,
-    oldpeak: number,
-    slope: number,
-    ca: number,
-    thal: number,
     result: string) {
+      let json = {   "name": name,
+      "age": age,
+      "sex":sex,
+      "date":date,
+      "result":result
+  }
+  let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  let options = { headers: headers };
     const patient: Patient = {
-      name: name, age: age, sex: sex, date:date, cp: cp, trestbps: trestbps, chol: chol, fbs: fbs, restecg: restecg
-      , thalach: thalach, exang: exang, oldpeak: oldpeak, slope: slope, ca: ca, thal: thal, result: result
+      name: name, age: age, sex: sex, date:date, result: result
     };
-    this.userCollection.doc(userId).collection(`patients`).add(patient);
+    return this.http.post<any>(this.Api,json,options).pipe(
+      map(res => {
+        console.log(res);
+      })
+    
+    );
+    
 
   }
 
